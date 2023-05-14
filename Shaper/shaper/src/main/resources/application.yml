@@ -1,0 +1,15 @@
+server:
+  port: 8090
+grid:
+  shaper:
+    resultResponseUrl: /api/v1/shaper/response
+    command: java -jar
+    files:
+      directory: C:/Users/maria/Documents/8_sem/GridComputing/InputFiles
+      jarFile: Masyu-1.0-SNAPSHOT-jar-with-dependencies.jar
+      inputFile: masyu.txt
+  spreader:
+    protocol: http
+    host: spreader
+    port: 8761
+    sendTaskUrl: /api/v1/spreader/task

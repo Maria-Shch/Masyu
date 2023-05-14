@@ -1,0 +1,18 @@
+server:
+  port: 8761
+grid:
+  spreader:
+    ui_date_time_format: dd/MM/yyyy HH:mm:ss
+    files:
+      uploadUrl: C:/Users/maria/Documents/8_sem/GridComputing/Files
+    task:
+      resultCallbackUrl: /api/v1/spreader/task/{uuid}/result
+      cancelTaskUrl: /api/v1/node/task/{uuid}
+    healthCheck:
+      period: 30
+      removeAfter: 90
+    deadNodeCheck:
+      period: 60
+  node:
+    taskPartUrl: /api/v1/node/task
+    healthCheckUrl: /api/v1/node/healthCheck

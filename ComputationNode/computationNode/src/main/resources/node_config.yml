@@ -1,0 +1,10 @@
+rating: 10
+cpu:
+  name: Intel Core i7-6500U 2.5 GHz
+  family: 6
+  frequency: 2.5 GHz
+  physicalProcessorsCount: 2
+  logicalProcessorsCount: 4
+ram:
+  type: DDR4
+  capacity: 8 GB

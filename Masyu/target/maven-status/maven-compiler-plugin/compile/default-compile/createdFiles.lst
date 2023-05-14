@@ -1,0 +1,10 @@
+ru\shcherbatykh\masyu\models\Color.class
+ru\shcherbatykh\masyu\models\Cell.class
+ru\shcherbatykh\masyu\Main.class
+ru\shcherbatykh\masyu\logic\SolutionMapChecker.class
+ru\shcherbatykh\masyu\utils\CommandUtils.class
+ru\shcherbatykh\masyu\logic\Resolver.class
+ru\shcherbatykh\masyu\models\MasyuMap.class
+ru\shcherbatykh\masyu\models\Bead.class
+ru\shcherbatykh\masyu\models\LT.class
+ru\shcherbatykh\masyu\models\SolutionMap.class

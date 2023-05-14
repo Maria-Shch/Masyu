@@ -1,0 +1,14 @@
+server:
+  port:
+    8081
+grid:
+  spreader:
+    protocol: http
+    host: spreader
+    port: 8761
+    registrationUrl: /api/v1/spreader/registry
+  node:
+    files:
+      uploadUrl: C:/Users/maria/Documents/8_sem/GridComputing/Files
+    configuration:
+      config_file: node_config.yml

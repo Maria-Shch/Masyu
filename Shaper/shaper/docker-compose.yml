@@ -1,0 +1,73 @@
+version: '3.8'
+services:
+  shaper:
+    image: shaper:latest
+    container_name: shaper
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    env_file: ./.env
+    depends_on:
+      - spreader
+      - computational_node_1
+#      - computational_node_2
+#      - computational_node_3
+#      - computational_node_4
+  spreader:
+    image: spreader:latest
+    container_name: spreader
+    build:
+      context: C:/Users/maria/Documents/8_sem/GridComputing/Spreader/spreader
+      dockerfile: Dockerfile
+    env_file: C:/Users/maria/Documents/8_sem/GridComputing/Spreader/spreader/.env
+    ports:
+      - "8761:8761"
+  computational_node_1:
+    image: computational_node:latest
+    build:
+      context: C:/Users/maria/Documents/8_sem/GridComputing/ComputationNode/computationNode
+      dockerfile: Dockerfile
+    env_file: C:/Users/maria/Documents/8_sem/GridComputing/ComputationNode/computationNode/.env
+    ports:
+      - "8081:8081"
+    depends_on:
+      - spreader
+#  computational_node_2:
+#    image: computational_node:latest
+#    build:
+#      context: C:/Users/maria/Documents/8_sem/GridComputing/ComputationNode/computationNode
+#      dockerfile: Dockerfile
+#    env_file: C:/Users/maria/Documents/8_sem/GridComputing/ComputationNode/computationNode/.env
+#    ports:
+#      - "8082:8081"
+#    depends_on:
+#      - spreader
+#  computational_node_3:
+#    image: computational_node:latest
+#    build:
+#      context: C:/Users/maria/Documents/8_sem/GridComputing/ComputationNode/computationNode
+#      dockerfile: Dockerfile
+#    env_file: C:/Users/maria/Documents/8_sem/GridComputing/ComputationNode/computationNode/.env
+#    ports:
+#      - "8083:8081"
+#    depends_on:
+#      - spreader
+#  computational_node_4:
+#    image: computational_node:latest
+#    build:
+#      context: C:/Users/maria/Documents/8_sem/GridComputing/ComputationNode/computationNode
+#      dockerfile: Dockerfile
+#    env_file: C:/Users/maria/Documents/8_sem/GridComputing/ComputationNode/computationNode/.env
+#    ports:
+#      - "8084:8081"
+#    depends_on:
+#      - spreader
+  frontend:
+    image: frontend:latest
+    build:
+      context: C:/Users/maria/Documents/8_sem/GridComputing/Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"

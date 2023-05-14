@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="APP_LOG_PATTERN" value="%d{HH:mm:ss.SSS} [%t] %-5level %class{36}.%M#%L - %msg%n"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${APP_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <appender name="APP_LOG_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/app.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>${APP_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <appender name="REST_LOG_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/rest.log</file>
+        <append>false</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>${APP_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="ru.shcherbatykh.spreader" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="APP_LOG_FILE"/>
+    </logger>
+    <logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="debug" additivity="false">
+        <appender-ref ref="REST_LOG_FILE"/>
+    </logger>
+    <logger name="ru.shcherbatykh.spreader.logging.LoggingInterceptor" level="debug" additivity="false">
+        <appender-ref ref="REST_LOG_FILE"/>
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="APP_LOG_FILE"/>
+    </root>
+</configuration>
